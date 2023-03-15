@@ -1,0 +1,4 @@
+app/__pycache
+__pycache__
+vnv/
+*.pyc

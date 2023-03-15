@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% block sytles %}{% endblock %}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+	{% if title %}
+		<title>C4M-Blog | {{ title }}</title>
+	{% else %}
+		<title>Home</title>
+	{% endif %}
+</head>
+<body>
+	{% include "includes/header.html" %}
+
+	{% block content %}
+
+
+	{% endblock %}
+
+	{% block script %}
+	<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+	{% endblock %}
+</body>
+</html>

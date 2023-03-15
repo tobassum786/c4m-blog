@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{% block title %}Post{% endblock %}
+
+{% block content %}
+
+<div class="main-container">
+	<div class="post_container">
+		<div class="post_header">
+			<div class="post_title">
+				<h1>{{ one_post.title }}</h1>
+				<h4>{{ one_post.sub_title }}</h4>
+				<small>Posted on - {{ one_post.posted_date.strftime('%d-%m-%y') }}</small>
+			</div>
+			<div class="social-share">
+				<p>share with:</p>
+				<a href="#">
+					<i class="bi bi-instagram"></i>
+				</a>
+				<a href="#">
+					<i class="bi bi-facebook"></i>
+				</a>
+				<a href="#">
+					<i class="bi bi-twitter"></i>
+				</a>
+			</div>
+		</div>
+		<div class="post_content">
+			<p>{{ one_post.post_content }}</p>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

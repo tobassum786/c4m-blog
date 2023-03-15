@@ -1,0 +1,376 @@
+* {
+	top: 0;
+	left: 0;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+
+.btn {
+	width: 150px;
+	padding: 16px 32px;
+	background: none;
+	border: none;
+	background: lightblue;
+	border-radius: 10px;
+	font-size: 18px;
+	outline: none;
+	text-transform: capitalize;
+	text-align: center;
+	margin-top: 30px;
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 3px 3px;
+}
+
+.btn:hover {
+	cursor: pointer;
+	opacity: .7;
+}
+
+.main-container {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.main-container .left-heading {
+	width: 25%;
+	height: 90vh;
+	background: #000;
+	align-items: center;
+	justify-content: space-between;
+	display: flex;
+	flex-direction: column;
+	padding: 32px;
+	border-right: 10px solid hsla(339, 100%, 55%, 1);
+}
+
+.main-container .left-heading h1 {
+	font-size: 6vw;
+	text-transform: bolder;
+	text-transform: capitalize;
+	color: #fff;
+}
+
+.main-container .left-heading h3 {
+	font-size: 34px;
+	padding: 5px;
+	color: #fff;
+	border-bottom: 1px solid white;
+}
+
+.main-container .form-container {
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	width: calc(100% - 25%);
+}
+
+.main-container .form-container form {
+	display: flex;
+	justify-items: center;
+	flex-direction: column;
+	padding: 32px;
+	width: 50%;
+}
+
+.form-container form label {
+	font-size: 16px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.form-container .alert-box {
+	position: relative;
+	padding: 16px;
+	border-radius: 10px;
+	color: white;
+	background-color: #FF5252;
+	font-size: 12px;
+	text-transform: uppercase;
+	text-align: center;
+	width: 30%;
+}
+
+.form-container .alert-box a {
+	color: blueviolet;
+	text-decoration: underline;
+}
+
+.form-container form input {
+	outline: none;
+	border: none;
+	border-bottom: 1px solid black;
+	margin-bottom: 20px;
+	font-size: 18px;
+	padding: 5px;
+}
+
+.new-user,
+.already-user {
+	color: blueviolet;
+	text-transform: uppercase;
+}
+
+/*profile section*/
+
+.main-container {
+	position: relative;
+}
+
+.sub-container {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.sub-container .side-menu {
+	position: absolute;
+	left: 0;
+	padding: 2rem;
+	width: 300px;
+	background: rgba(0, 55, 113, 0.5);
+	height: 100vh;
+}
+
+.side-menu .image {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 150px;
+	height: 150px;
+	background: dimgray;
+	border-radius: 50%;
+	margin: 0 2.5rem;
+}
+
+.side-menu .image .profile_pic {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: rgba(225,225,225,.5);
+	border-radius: 50%;
+	transition: 1s;
+}
+
+.side-menu .image .profile_pic:hover::after {
+	content: attr(data-profile);
+	position: absolute;
+	border-radius: inherit;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 150px;
+	height: 150px;
+	background: rgba(101, 165, 233, 0.5);
+	text-align: center;
+	transition: inherit;
+	text-transform: capitalize;
+}
+
+.profile__header {
+	padding: 1rem;
+}
+
+.profile__header h2 {
+	font-size: 1.2em;
+	color: whitesmoke;
+	text-align: center;
+	font-weight: 300;
+	padding-bottom: .2rem;
+	letter-spacing: 1.2px;
+	text-transform: capitalize;
+}
+
+.profile__header p {
+	font-size: 0.9rem;
+	text-align: center;
+	color: black;
+	letter-spacing: 1.2px;
+	text-transform: capitalize;
+}
+
+
+/*profile section user post and crud options main-content section*/
+
+.main-content {
+	position: relative;
+	left: 300px;
+	width: calc(100% - 300px);
+	height: 100vh;
+}
+
+.main-content .top-header {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	padding: 0 2rem 1rem 0;
+	border-bottom: 1px solid rgba(172, 172, 172, 0.8);
+}
+
+.main-content .top-header .new__post {
+	margin-top: 1rem;
+	color: black;
+}
+
+/*home page post display styles*/
+.main-container .row,
+.main-container .col {
+	margin: 1rem 0.65rem;
+	width: 100%;
+}
+
+.main-container .card-body {
+	position: relative;
+	display: flex;
+	flex-flow: wrap row;
+	gap: 1rem;
+}
+
+.card-body .card-content {
+	display: flex;
+	width: 430px;
+	height: auto;
+	padding: 1rem;
+	height: 150px;
+	border-left: 10px solid burlywood;
+	border-radius: 0 10px 10px 0;
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 3px 3px;
+}
+
+.card-content .author-date {
+	flex: 0 0 100px;
+	padding-bottom: 0.3rem;
+	align-self: center;
+	margin-right: 0.8rem;
+}
+
+.card-content h2:hover {
+	color: burlywood;
+}
+
+.card-content h2 {
+	color: black;
+	text-transform: capitalize;
+	letter-spacing: 1px;
+	padding-bottom: 0.8rem;
+}
+/*new post form styles*/
+
+.main-container form {
+	margin-top: 1rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.main-container form fieldset {
+	width: 800px;
+	height: 450px;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.main-container form fieldset legend {
+	padding: .3rem;
+	border: 1px solid black;
+	font-weight: bold;
+}
+
+.main-container form fieldset label {
+	text-transform: capitalize;
+	margin-top: 0.6rem;
+	letter-spacing: 1px;
+	font-size: 0.8em;
+}
+
+.main-container form fieldset input {
+	padding: 0.6rem;
+	font-size: 1rem;
+}
+
+.main-container form fieldset textarea {
+	padding: 0.6rem;
+	margin-top: 0.6rem;
+	height: 200px;
+	font-size: 1rem;
+	resize: none;
+}
+
+/*post page styles open singal post*/
+
+.post_container {
+	position: relative;
+}
+
+.post_container .post_header {
+	background-color: #ffff00;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ff8000'/%3E%3Cstop offset='1' stop-color='%23ff8000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2300ff19'/%3E%3Cstop offset='1' stop-color='%2300ff19' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%239900ff'/%3E%3Cstop offset='1' stop-color='%239900ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ffff00'/%3E%3Cstop offset='1' stop-color='%23ffff00' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23FF0000'/%3E%3Cstop offset='1' stop-color='%23FF0000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%230CF'/%3E%3Cstop offset='1' stop-color='%230CF' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
+	background-attachment: fixed;
+	background-size: cover;
+	padding: 3rem 6.25rem;
+	text-align: center;
+}
+
+.post_header .post_title {
+	color: white;
+}
+
+.post_header .post_title h1 {
+	font-size: 5vw;
+	text-transform: capitalize;
+	letter-spacing: 1px;
+}
+
+.post_header .post_title h4 {
+	font-size: 1.5vw;
+	text-transform: uppercase;
+	padding-bottom: 1rem;
+}
+
+.post_header .social-share {
+	padding: 2rem;
+}
+
+
+.social-share p {
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	color: wheat;
+	margin-bottom: 1rem;
+}
+
+.social-share i {
+	font-size: 1.5rem;
+	padding: 0.5rem;
+}
+
+.social-share a:hover {
+	color: burlywood;
+}
+
+/*post content container*/
+
+.post_container .post_content {
+	padding: 5rem;
+}
+
+.post_content p {
+	text-justify: newspaper;
+	font-size: 1.1rem;
+	letter-spacing: 1px;
+	font-family: monospace;
+	line-height: 1.6;
+	text-align: justify;
+}
+
+.post_content p::first-letter {
+	font-size: 2.5vw;
+}
+

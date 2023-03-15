@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="main-container">
+	<div class="left-heading">
+		<h3>Login</h3>
+		<h1>get access</h1>
+	</div>
+	<div class="form-container">
+		{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					<div class="alert-box">
+						{{ messages[0] }}
+					</div>
+				{% endif %}
+		    {% endwith %}
+		<form action="/login" name="login" method="POST">
+			<label for="username">username:</label>
+			<input type="text" name="username" id="username" required>
+			<label for="password">password:</label>
+			<input type="password" name="password" id="password" required>
+			<p>Don't have account?<a href="{{ url_for('auth.register') }}" class="new-user">&nbsp;click here</a></p>
+			<button class="btn" type="submit">Submit</button>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

@@ -3,7 +3,8 @@
 {% endblock %}
 
 <header class="nav-bar">
-	<label for="logo">Code4mind</label>
+	<a href="{{ url_for('main.index') }}" class="logo">
+	Code4mind</a>
 	<ul class="nav-items">
 		<li class="nav-item"><a href="{{ url_for('main.index') }}">Home</a></li>
 		{% if current_user.is_authenticated %}

@@ -230,7 +230,7 @@
 }
 
 .static_content .card_body {
-	background: wheat;
+	background: linear-gradient(140deg, cadetblue 10%, lightblue 80%);
 	border-radius: 10px;
 	width: 200px;
 	padding: 1.2rem;
@@ -242,6 +242,7 @@
 .static_content .card_body h1 {
 	font-size: 3rem;
 	font-weight: 400;
+	color: black;
 }
 
 .static_content .card_body p {
@@ -250,6 +251,7 @@
 	font-family: monospace;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+	color: black;
 }
 
 /*user post data and actions perform */

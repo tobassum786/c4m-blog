@@ -19,11 +19,13 @@ ul,li {
 	background: linear-gradient(90deg, #000 0%, hsla(197, 100%, 64%, 1) 100%);
 }
 
-.nav-bar label {
+
+.nav-bar .logo {
 	font-size: 24px;
 	font-weight: bold;
 	text-transform: uppercase;
 	color: #fff;
+	cursor: pointer;
 }
 
 .nav-bar .nav-items {

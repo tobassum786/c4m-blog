@@ -219,6 +219,83 @@
 	color: black;
 }
 
+/*profile user staic container*/
+
+.static_content {
+	position: relative;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 1.5rem;
+}
+
+.static_content .card_body {
+	background: wheat;
+	border-radius: 10px;
+	width: 200px;
+	padding: 1.2rem;
+	text-align: center;
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 3px 3px;
+}
+
+
+.static_content .card_body h1 {
+	font-size: 3rem;
+	font-weight: 400;
+}
+
+.static_content .card_body p {
+	font-size: 1.2rem;
+	font-weight: 300;
+	font-family: monospace;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+/*user post data and actions perform */
+
+.user_post_data {
+	position: relative;
+	padding: 1.5rem;
+}
+
+.user_post_data table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 1rem;
+}
+
+th {
+	text-transform: uppercase;
+	font-size: 0.8rem;
+}
+
+th, td {
+	padding: 0.7rem;
+	border: 1px solid gray;
+}
+
+tr:nth-child(even) {
+	background-color: wheat;
+}
+
+td a {
+	color: black;
+}
+
+td a:hover:nth-child(1) {
+	color: blueviolet;
+}
+
+td .actions {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+td .actions a:nth-child(2) {
+	color: red;
+}
+
 /*home page post display styles*/
 .main-container .row,
 .main-container .col {

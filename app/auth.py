@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, current_user, login_user, logout_user, login_required, UserMixin
 from .models import User
 from . import db
+from datetime import timedelta
 
 auth = Blueprint('auth', __name__)
 
@@ -19,12 +20,12 @@ def login():
 
 		if not user or not check_password_hash(user.password, password):
 			flash("username and password wrong")
-
-			return redirect(url_for("auth.login"))
+			return redirect(request.url)
 
 		login_user(user)
 		return redirect(url_for("main.index"))
 
+		session.permanent = True
 
 	return render_template("login.html", title='Login')
 

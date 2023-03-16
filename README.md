@@ -6,3 +6,6 @@ Build blog website using flask with user authentication method. Anyone can be co
 2. Download Flask firmware and make virtual enviorment using <code>python -m venv env</code> activate the (VENV) 
 3. Install the requirements from requirement.txt file <code>pip install -r requirement.txt</code>
 4. And write command <code>flask run</code>
+
+
+

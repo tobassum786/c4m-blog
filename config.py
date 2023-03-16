@@ -1,4 +1,5 @@
 from os import path, environ
+from datetime import timedelta
 from dotenv import load_dotenv
 import os
 
@@ -13,6 +14,10 @@ class Config():
 	SQLALCHEMY_DATABASE_URI=environ.get("SQLALCHEMY_DATABASE_URI")
 	SQLALCHEMY_TRACK_MODIFICATION=False
 
+	# # session permanent
+	# PERMANENT_SESSION_LIFETIME=environ.get("PERMANENT_SESSION_LIFETIME")
+
+
 
 class DevelopmentConfig(Config):
 	FLASK_DEBUG = True
@@ -21,3 +26,6 @@ class DevelopmentConfig(Config):
 	SECRET_KEY=environ.get("SECRET_KEY")
 	SQLALCHEMY_DATABASE_URI=environ.get("SQLALCHEMY_DATABASE_URI")
 	SQLALCHEMY_TRACK_MODIFICATION=False
+
+	# # session permanent
+	# PERMANENT_SESSION_LIFETIME=environ.get("PERMANENT_SESSION_LIFETIME")

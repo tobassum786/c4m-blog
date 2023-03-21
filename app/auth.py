@@ -23,7 +23,7 @@ def login():
 			return redirect(request.url)
 
 		login_user(user)
-		return redirect(url_for("main.index"))
+		return redirect(url_for("main.profile"))
 
 		session.permanent = True
 

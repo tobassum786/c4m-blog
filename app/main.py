@@ -18,6 +18,8 @@ def index():
 @main.route('/profile')
 @login_required
 def profile():
+
+
 	return render_template('profile.html', title='Profile')
 
 #post page
@@ -44,3 +46,21 @@ def new_post():
 		return redirect(url_for('main.post'))
 
 	return render_template('new-post.html', title="New post")
+
+
+#Delete post from db and home page
+@main.route("/delete-post/<int:post_id>")
+def delete_post(post_id):
+	pass
+
+#Re-edit existed post
+@main.route("/edit-post/<int:post_id>")
+def edit_post(post_id):
+	pass
+
+
+#user setting manage profile pictures and password updation
+@main.route("/setting")
+@login_required
+def user_setting():
+	pass

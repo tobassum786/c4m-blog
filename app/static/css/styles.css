@@ -197,6 +197,28 @@
 }
 
 
+/*user settings*/
+
+.side-menu .user_setting {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 2rem;
+}
+
+.user_setting i {
+	margin-right: 0.5rem;
+	font-size: 1.5rem;
+	color: wheat;
+}
+
+.user_setting a {
+	text-transform: capitalize;
+	color: wheat;
+	font-size: 1.3rem;
+}
+
+
 /*profile section user post and crud options main-content section*/
 
 .main-content {
@@ -237,7 +259,6 @@
 	text-align: center;
 	box-shadow: rgba(0, 0, 0, 0.19) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 3px 3px;
 }
-
 
 .static_content .card_body h1 {
 	font-size: 3rem;
@@ -297,6 +318,9 @@ td .actions {
 td .actions a:nth-child(2) {
 	color: red;
 }
+
+
+
 
 /*home page post display styles*/
 .main-container .row,

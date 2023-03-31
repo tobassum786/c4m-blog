@@ -3,6 +3,7 @@
 
 {% block content %}
 
+
 <div class="main-container">
 	<div class="post_container">
 		<div class="post_header">
@@ -25,7 +26,8 @@
 			</div>
 		</div>
 		<div class="post_content">
-			<p>{{ one_post.post_content }}</p>
+			<p>{{ one_post.post_content | safe }}</p>
+
 		</div>
 	</div>
 </div>

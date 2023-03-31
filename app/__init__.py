@@ -1,13 +1,23 @@
 from flask import Flask, session, g
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, current_user
+from flask_ckeditor import CKEditor
+from flask_share import Share
 
 db = SQLAlchemy()
+ckeditor = CKEditor()
+share = Share()
 
 def create_app():
 	#intial flask app and load config file
 	app = Flask(__name__, instance_relative_config=False)
 	app.config.from_object("config.DevelopmentConfig")
+
+	#ckeditor intialize in app
+	ckeditor.init_app(app)
+	
+	#social share post on social media
+	share.init_app(app)
 
 	from datetime import datetime, timedelta
 

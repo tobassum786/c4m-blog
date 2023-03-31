@@ -29,6 +29,7 @@
 }
 
 .main-container {
+	width: 100%;
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -364,47 +365,47 @@ td .actions a:nth-child(2) {
 	letter-spacing: 1px;
 	padding-bottom: 0.8rem;
 }
+
 /*new post form styles*/
 
-.main-container form {
+.form-container {
+	padding: 5rem;
+}
+
+.form-container form {
 	margin-top: 1rem;
 	display: flex;
 	flex-direction: column;
+	height: auto;
 }
 
-.main-container form fieldset {
-	width: 800px;
-	height: 450px;
+.form-container form fieldset {
+	max-width: 100%;
+	height: auto;
 	padding: 1rem;
 	display: flex;
 	flex-direction: column;
 }
 
-.main-container form fieldset legend {
+.form-container form fieldset legend {
 	padding: .3rem;
 	border: 1px solid black;
 	font-weight: bold;
 }
 
-.main-container form fieldset label {
+.form-container form fieldset label {
 	text-transform: capitalize;
 	margin-top: 0.6rem;
 	letter-spacing: 1px;
+	padding-bottom: 1rem;
 	font-size: 0.8em;
 }
 
-.main-container form fieldset input {
+.form-container form fieldset input {
 	padding: 0.6rem;
 	font-size: 1rem;
 }
 
-.main-container form fieldset textarea {
-	padding: 0.6rem;
-	margin-top: 0.6rem;
-	height: 200px;
-	font-size: 1rem;
-	resize: none;
-}
 
 /*post page styles open singal post*/
 
@@ -413,6 +414,7 @@ td .actions a:nth-child(2) {
 }
 
 .post_container .post_header {
+	max-width: 100%;
 	background-color: #ffff00;
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ff8000'/%3E%3Cstop offset='1' stop-color='%23ff8000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2300ff19'/%3E%3Cstop offset='1' stop-color='%2300ff19' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%239900ff'/%3E%3Cstop offset='1' stop-color='%239900ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ffff00'/%3E%3Cstop offset='1' stop-color='%23ffff00' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23FF0000'/%3E%3Cstop offset='1' stop-color='%23FF0000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%230CF'/%3E%3Cstop offset='1' stop-color='%230CF' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
 	background-attachment: fixed;

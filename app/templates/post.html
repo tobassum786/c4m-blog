@@ -3,6 +3,8 @@
 
 {% block content %}
 
+{{ share.load() }}
+
 
 <div class="main-container">
 	<div class="post_container">
@@ -12,18 +14,7 @@
 				<h4>{{ one_post.sub_title }}</h4>
 				<small>Posted on - {{ one_post.posted_date.strftime('%d-%m-%y') }}</small>
 			</div>
-			<div class="social-share">
-				<p>share with:</p>
-				<a href="#">
-					<i class="bi bi-instagram"></i>
-				</a>
-				<a href="#">
-					<i class="bi bi-facebook"></i>
-				</a>
-				<a href="#">
-					<i class="bi bi-twitter"></i>
-				</a>
-			</div>
+			{{ share.create(title='share with: ', sites = "facebook, twitter, linkedin", align="center") }}
 		</div>
 		<div class="post_content">
 			<p>{{ one_post.post_content | safe }}</p>

@@ -12,7 +12,7 @@
 			<div class="post_title">
 				<h1>{{ one_post.title }}</h1>
 				<h4>{{ one_post.sub_title }}</h4>
-				<small>Posted on - {{ one_post.posted_date.strftime('%d-%m-%y') }}</small>
+				<small>Posted on: {{ one_post.posted_date.strftime('%d-%m-%y') }} <br> by: {{ one_post.author.username }}</small>
 			</div>
 			{{ share.create(title='share with: ', sites = "facebook, twitter, linkedin", align="center") }}
 		</div>

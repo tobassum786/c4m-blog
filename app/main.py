@@ -20,7 +20,7 @@ def index():
 def profile():
 
 
-	return render_template('profile.html', title='Profile')
+	return render_template('profile.html', title='Dashboard')
 
 #post page
 @main.route("/post/<int:post_id>")

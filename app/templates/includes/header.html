@@ -8,7 +8,7 @@
 	<ul class="nav-items">
 		<li class="nav-item"><a href="{{ url_for('main.index') }}">Home</a></li>
 		{% if current_user.is_authenticated %}
-		<li class="nav-item"><a href="{{ url_for('main.profile') }}">profile</a></li>
+		<li class="nav-item"><a href="{{ url_for('main.profile') }}">dashboard</a></li>
 		{% endif %}
 
 		{% if not current_user.is_authenticated %}

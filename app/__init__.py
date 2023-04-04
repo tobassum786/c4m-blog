@@ -3,10 +3,12 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, current_user
 from flask_ckeditor import CKEditor
 from flask_share import Share
+from flask_migrate import Migrate
 
 db = SQLAlchemy()
 ckeditor = CKEditor()
 share = Share()
+migrate = Migrate()
 
 def create_app():
 	#intial flask app and load config file
@@ -30,7 +32,7 @@ def create_app():
 		g.user = current_user
 
 	#intialize login module
-	login_manager = LoginManager()
+	login_manager = LoginManager()           
 	login_manager.login_view = 'auth.login'
 	login_manager.init_app(app)
 	login_manager.refresh_view = 'auth.login'
@@ -44,11 +46,12 @@ def create_app():
 	def load_user(user_id):
 		return User.query.get(user_id)
 
-
 	#configure database
 	from . import models
 
 	db.init_app(app)
+	# migrate application database
+	migrate.init_app(app, db)
 
 	with app.app_context():
 		db.create_all()

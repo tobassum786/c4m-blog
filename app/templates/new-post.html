@@ -4,6 +4,7 @@
 
 {{  ckeditor.load(pkg_type="standard") }}
 
+
 <div class="form-container">
 	<form action="" method="POST">
 		<fieldset>
@@ -22,5 +23,10 @@
 	</form>
 </div>
 
+
+{% endblock %}
+
+{% block script %} 
+<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 {% endblock %}

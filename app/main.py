@@ -1,7 +1,9 @@
-from flask import Flask, Blueprint, render_template, url_for, request, session, redirect
+from flask import Flask, Blueprint, render_template, url_for, request, session, redirect, send_from_directory
 from . import db
 from .models import User, Post
 from flask_login import LoginManager, current_user, login_user, logout_user, login_required, UserMixin
+import uuid
+from flask_ckeditor import *
 
 
 main = Blueprint('main', __name__)
@@ -28,6 +30,14 @@ def post(post_id):
 	one_post = Post.query.filter_by(id=post_id).one()
 	return render_template('post.html', title="Post", one_post=one_post)
 
+
+#upload post image files
+@main.route('/files/<path:filename>')
+def upload_files(filename):
+	app = current_app._get_current_object()
+	path = app.config['UPLOAD_DIR']
+	return send_from_directory(path, filename)
+
 #create a new post
 @main.route("/new_post", methods=['POST', 'GET'])
 @login_required
@@ -38,6 +48,7 @@ def new_post():
 		sub_title = request.form['sub_title']
 		post_content = request.form['ckeditor']
 		user_id = current_user.id
+
 
 		post = Post(title=title, sub_title=sub_title, post_content=post_content, user_id=user_id)
 

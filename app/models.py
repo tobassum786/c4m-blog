@@ -35,7 +35,7 @@ class Post(db.Model):
 	title = db.Column(db.String(200), nullable=False)
 	sub_title = db.Column(db.String(150), nullable=False)
 	posted_date = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow)
-	image_file = db.Column(db.String(50), nullable=True, default='default.jpg')
+	post_image = db.Column(db.String(50), nullable=True, default='default.jpg')
 	post_content = db.Column(db.VARCHAR, nullable=False)
 	# relation with user table
 	user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)

@@ -14,8 +14,3 @@ function revealContent() {
 
 rBtn.addEventListener('click', revealContent);
 
-
-
-CKEDITOR.plugins.addExternal( 'filebrowser', '/static/ckeditor/filebrowser/', 'plugin.js' );
-CKEDITOR.config.extraPlugins = 'filebrowser';
-CKEDITOR.config.filebrowserBrowseUrl  = '/upload';

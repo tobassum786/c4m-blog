@@ -21,21 +21,19 @@
 			</div>
 		</div>
 		<div class="profile_picture img-g">
-			<img src="" alt="">
+			<img src="{{ image_file }}" alt="">
 		</div>
 	</div>
 	<!-- update profile data -->
 	<div class="update-user-info hidden">
 		<h3>Edit Profile</h3>
-		<form action="" method="POST">
+		<form action="" method="POST" enctype="multipart/form-data">
 			<label for="username">username</label>
 			<input type="text" name="username" id="username" placeholder="Enter new username">
-			<label for="password">password</label>
-			<input type="password" name="password" id="password" placeholder="enter your new password">
 			<label for="email">email</label>
 			<input type="email" name="email" id="email" placeholder="enter your new email">
-			<label for="profile_pic">Choose a profile picture:</label>
-			<input type="file" id="profile_pic" name="profile_pic" accept="image/png, image/jpeg">
+			<label for="file">Choose a profile picture:</label>
+			<input type="file" id="file" name="file" accept="image/png, image/jpeg">
 			<button class="btn info-btn">update</button>
 		</form>
 	</div>

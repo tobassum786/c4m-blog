@@ -2,11 +2,7 @@ from flask import Flask, Blueprint, render_template, url_for, request, session, 
 from . import db
 from .models import User, Post
 from flask_login import LoginManager, current_user, login_user, logout_user, login_required, UserMixin
-import secrets
 from flask_ckeditor import *
-from PIL import Image
-import os
-
 
 main = Blueprint('main', __name__)
 
@@ -18,31 +14,22 @@ def index():
 
 	return render_template('index.html', posts=posts)
 
-#save profile images
-def save_pic(form_picture):
-	random_hex = secrets.token_hex(8)
-	_,f_ext = os.path.splitext(form_picture.filename)
-	image_name = random_hex + f_ext
-	image_path = os.path.join(app.config['UPLOAD_DIR'], image_name)
-	form_picture.save(image_path)
-
-	return image_name
 
 #profile route
 @main.route('/profile', methods=['POST', 'GET'])
 @login_required
 def profile():
+	user_data = User.query.all()
 	# get information from profile
 	if request.method == "POST":
-		image_f = save_pic(request.files['file'])
-		current_user.image_file = image_f
 		current_user.username = request.form['username']
 		current_user.email = request.form['email']
+		current_user.image_file = request.files['file']
 		db.session.commit()
-		image_f = url_for('static', filename='/images' + current_user.image_file)
 		flash("update successfully")
+
 		return redirect(url_for('main.profile'))
-	return render_template('profile.html', title='Dashboard', image_f=image_f)
+	return render_template('profile.html', title='Dashboard', user_data=user_data)
 
 #post page
 @main.route("/post/<int:post_id>")
@@ -60,10 +47,13 @@ def new_post():
 		sub_title = request.form['sub_title']
 		post_content = request.form['ckeditor']
 		user_id = current_user.id
-		image_file = current_user.image_file
 
 
 		post = Post(title=title, sub_title=sub_title, post_content=post_content, user_id=user_id)
+
+		if post == '':
+			flash("Empty content cannot be postes.")
+			return redirect(url_for('main.new_post'))
 
 		db.session.add(post)
 		db.session.commit()

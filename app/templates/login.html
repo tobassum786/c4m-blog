@@ -3,10 +3,6 @@
 {% block content %}
 
 <div class="main-container">
-	<div class="left-heading">
-		<h3>Login</h3>
-		<h1>get access</h1>
-	</div>
 	<div class="form-container">
 		{% with messages = get_flashed_messages() %}
 				{% if messages %}
@@ -15,6 +11,7 @@
 					</div>
 				{% endif %}
 		    {% endwith %}
+		    <h2>Login</h2>
 		<form action="/login" name="login" method="POST">
 			<label for="username">username:</label>
 			<input type="text" name="username" id="username" required>

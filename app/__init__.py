@@ -4,13 +4,14 @@ from flask_login import LoginManager, current_user
 from flask_ckeditor import CKEditor
 from flask_share import Share
 from flask_migrate import Migrate
+from config import DevelopmentConfig
 
 db = SQLAlchemy()
 ckeditor = CKEditor()
 share = Share()
 migrate = Migrate()
 
-def create_app():
+def create_app(config=DevelopmentConfig):
 	#intial flask app and load config file
 	app = Flask(__name__, instance_relative_config=False)
 	app.config.from_object("config.DevelopmentConfig")

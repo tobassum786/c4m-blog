@@ -14,9 +14,8 @@ class Config():
 	SQLALCHEMY_DATABASE_URI=environ.get("SQLALCHEMY_DATABASE_URI")
 	SQLALCHEMY_TRACK_MODIFICATION=False
 
-	UPLOAD_DIR=environ.get("UPLOAD_DIR")
+	UPLOAD_DIR=os.path.join(basedir, 'upload')
 
-	CKEDITOR_FILE_UPLOADER=environ.get("CKEDITOR_FILE_UPLOADER")
 
 	# # session permanent
 	# PERMANENT_SESSION_LIFETIME=environ.get("PERMANENT_SESSION_LIFETIME")
@@ -31,9 +30,8 @@ class DevelopmentConfig(Config):
 	SQLALCHEMY_DATABASE_URI=environ.get("SQLALCHEMY_DATABASE_URI")
 	SQLALCHEMY_TRACK_MODIFICATION=False
 
-	UPLOAD_DIR=environ.get("UPLOAD_DIR")
+	UPLOAD_DIR=os.path.join(basedir, 'upload')
 
-	CKEDITOR_FILE_UPLOADER=environ.get("CKEDITOR_FILE_UPLOADER")
 
 	# # session permanent
 	# PERMANENT_SESSION_LIFETIME=environ.get("PERMANENT_SESSION_LIFETIME")

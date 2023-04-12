@@ -21,7 +21,9 @@
 			</div>
 		</div>
 		<div class="profile_picture img-g">
-			<img src="{{ image_file }}" alt="">
+			{% for i in user_data %}
+			<img src="{{ i.image_file }}" alt="user_profile_image">
+			{% endfor %}
 		</div>
 	</div>
 	<!-- update profile data -->
@@ -29,9 +31,9 @@
 		<h3>Edit Profile</h3>
 		<form action="" method="POST" enctype="multipart/form-data">
 			<label for="username">username</label>
-			<input type="text" name="username" id="username" placeholder="Enter new username">
+			<input type="text" name="username" id="username" placeholder="Enter new username" required>
 			<label for="email">email</label>
-			<input type="email" name="email" id="email" placeholder="enter your new email">
+			<input type="email" name="email" id="email" placeholder="enter your new email" required>
 			<label for="file">Choose a profile picture:</label>
 			<input type="file" id="file" name="file" accept="image/png, image/jpeg">
 			<button class="btn info-btn">update</button>

@@ -14,8 +14,7 @@ from config import DevelopmentConfig
 auth = Blueprint('auth', __name__)
 
 app = Flask(__name__)
-basedir = os.path.abspath(os.path.dirname(__file__))
-UPLOAD_DIR=os.path.join(basedir, 'upload')
+UPLOAD_DIR=os.path.join('static', 'image/upload')
 app.config['UPLOAD_DIR'] = UPLOAD_DIR
 
 
@@ -86,7 +85,7 @@ def register():
 		flash("Account successfully created")
 		return redirect(url_for("auth.login"))
 
-	return render_template("register.html", title='Register')
+	return render_template("register.html", title='Register', image_file=image_path)
 
 
 #logout route

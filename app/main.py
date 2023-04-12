@@ -3,8 +3,15 @@ from . import db
 from .models import User, Post
 from flask_login import LoginManager, current_user, login_user, logout_user, login_required, UserMixin
 from flask_ckeditor import *
+import os
+import secrets
 
 main = Blueprint('main', __name__)
+
+app = Flask(__name__)
+basedir = os.path.join(os.path.dirname(__file__))
+upload_path = os.path.join('static', 'images/upload')
+
 
 #home feed page
 @main.route('/')
@@ -29,7 +36,8 @@ def profile():
 		flash("update successfully")
 
 		return redirect(url_for('main.profile'))
-	return render_template('profile.html', title='Dashboard', user_data=user_data)
+	file = os.path.join(upload_path, current_user.image_file)
+	return render_template('profile.html', title='Dashboard', user_data=user_data, image=file)
 
 #post page
 @main.route("/post/<int:post_id>")

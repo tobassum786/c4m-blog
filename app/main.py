@@ -9,7 +9,6 @@ import secrets
 main = Blueprint('main', __name__)
 
 app = Flask(__name__)
-basedir = os.path.join(os.path.dirname(__file__))
 upload_path = os.path.join('static', 'images/upload')
 
 
@@ -36,8 +35,8 @@ def profile():
 		flash("update successfully")
 
 		return redirect(url_for('main.profile'))
-	file = os.path.join(upload_path, current_user.image_file)
-	return render_template('profile.html', title='Dashboard', user_data=user_data, image=file)
+	profile_file = os.path.join(upload_path, current_user.image_file)
+	return render_template('profile.html', title='Dashboard', user_data=user_data, image=profile_file)
 
 #post page
 @main.route("/post/<int:post_id>")

@@ -5,11 +5,13 @@ from flask_login import LoginManager, current_user, login_user, logout_user, log
 from flask_ckeditor import *
 import os
 import secrets
+from PIL import Image
 
 main = Blueprint('main', __name__)
 
 app = Flask(__name__)
-upload_path = os.path.join('static', 'images/upload')
+UPLOAD_DIR = os.path.join('static', 'images/upload')
+app.config['UPLOAD_DIR'] = UPLOAD_DIR
 
 
 #home feed page
@@ -20,6 +22,21 @@ def index():
 
 	return render_template('index.html', posts=posts)
 
+#new user profile image upload
+def save_pic(form_picture):
+	random_hex = secrets.token_hex(8)
+	_,f_ext = os.path.splitext(form_picture.filename)
+	image_name = random_hex + f_ext
+	image_path = os.path.join(app.config['UPLOAD_DIR'], image_name)
+	
+	# using pillow for resize the image file
+	output_size = (125, 125)
+	i = Image.open(form_picture)
+	i.thumbnail(output_size)
+	i.save(image_path)
+	i.replace(image_path)
+
+	return image_name
 
 #profile route
 @main.route('/profile', methods=['POST', 'GET'])
@@ -30,12 +47,14 @@ def profile():
 	if request.method == "POST":
 		current_user.username = request.form['username']
 		current_user.email = request.form['email']
-		current_user.image_file = request.files['file']
+		profile_p = save_pic(request.files['file'])
+		current_user.image_file = profile_p
+
 		db.session.commit()
 		flash("update successfully")
 
 		return redirect(url_for('main.profile'))
-	profile_file = os.path.join(upload_path, current_user.image_file)
+	profile_file = os.path.join(UPLOAD_DIR, current_user.image_file)
 	return render_template('profile.html', title='Dashboard', user_data=user_data, image=profile_file)
 
 #post page

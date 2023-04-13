@@ -14,7 +14,7 @@ from config import DevelopmentConfig
 auth = Blueprint('auth', __name__)
 
 app = Flask(__name__)
-UPLOAD_DIR=os.path.join('static', 'image/upload')
+UPLOAD_DIR=os.path.join('static', 'images/upload')
 app.config['UPLOAD_DIR'] = UPLOAD_DIR
 
 
@@ -46,7 +46,7 @@ def save_pic(form_picture):
 	_,f_ext = os.path.splitext(form_picture.filename)
 	image_name = random_hex + f_ext
 	image_path = os.path.join(app.config['UPLOAD_DIR'], image_name)
-
+	
 	# using pillow for resize the image file
 	output_size = (125, 125)
 	i = Image.open(form_picture)

@@ -94,3 +94,7 @@ def logout():
 	logout_user()
 	return redirect(url_for("auth.login"))
 
+
+@auth.route('/delete_account')
+def delete_account():
+	pass

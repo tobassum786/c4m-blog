@@ -6,6 +6,7 @@ from flask_ckeditor import *
 import os
 import secrets
 from PIL import Image
+from werkzeug.utils import secure_filename
 
 main = Blueprint('main', __name__)
 
@@ -42,20 +43,22 @@ def save_pic(form_picture):
 @main.route('/profile', methods=['POST', 'GET'])
 @login_required
 def profile():
-	user_data = User.query.all()
-	# get information from profile
+	id = current_user.id
+	user_data = User.query.get_or_404(id)
+	# get information from database and update with new data
 	if request.method == "POST":
-		current_user.username = request.form['username']
-		current_user.email = request.form['email']
-		profile_p = save_pic(request.files['file'])
-		current_user.image_file = profile_p
+		user_data.username = request.form['username']
+		user_data.email = request.form['email']
+		image_file = request.files['file']
 
+		filename = secure_filename(image_file.filename)
+		image_file.save(app.config['UPLOAD_DIR'], filename)
+
+		user_data.image_file = filename
+		filename.save()
 		db.session.commit()
-		flash("update successfully")
-
 		return redirect(url_for('main.profile'))
-	profile_file = os.path.join(UPLOAD_DIR, current_user.image_file)
-	return render_template('profile.html', title='Dashboard', user_data=user_data, image=profile_file)
+	return render_template('profile.html', title='Dashboard', user_data=user_data)
 
 #post page
 @main.route("/post/<int:post_id>")
@@ -77,8 +80,8 @@ def new_post():
 
 		post = Post(title=title, sub_title=sub_title, post_content=post_content, user_id=user_id)
 
-		if post == '':
-			flash("Empty content cannot be postes.")
+		if post_content == '':
+			flash("Empty content cannot be posted.")
 			return redirect(url_for('main.new_post'))
 
 		db.session.add(post)
@@ -99,9 +102,3 @@ def delete_post(post_id):
 def edit_post(post_id):
 	pass
 
-
-#user setting manage profile pictures and password updation
-@main.route("/setting")
-@login_required
-def user_setting():
-	pass

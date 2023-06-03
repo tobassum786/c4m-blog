@@ -16,7 +16,7 @@
 			<label for="sub_title">sub title</label>
 			<input type="text" id="sub_title" name="sub_title" placeholder="Subtitle">
 
-			<label for="post_content">content</label>
+			<label for="post_content" required>content</label>
 			{{ ckeditor.create(value=article_body) }}
 		</fieldset>
 		<button class="btn">post</button>

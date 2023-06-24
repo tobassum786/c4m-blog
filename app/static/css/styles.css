@@ -167,14 +167,13 @@
 .user-info-container .img-g {
 	width: 150px;
 	height: 150px;
-	border-radius: 100%;
+	border-radius: 10px;
 	background-position: center;
 	background-size: contain;
 }
 
 .user-info-container .img-g img {
 	max-width: 100%;
-	border-radius: 100%;
 }
 
 /*update user profile data*/

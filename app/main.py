@@ -7,13 +7,14 @@ import os
 import secrets
 from PIL import Image
 from werkzeug.utils import secure_filename
+import uuid
+
 
 main = Blueprint('main', __name__)
 
 app = Flask(__name__)
-UPLOAD_DIR = os.path.join('static', 'images/upload')
+UPLOAD_DIR = os.path.join('static', './images/upload')
 app.config['UPLOAD_DIR'] = UPLOAD_DIR
-
 
 #home feed page
 @main.route('/')
@@ -23,42 +24,29 @@ def index():
 
 	return render_template('index.html', posts=posts)
 
-#new user profile image upload
-def save_pic(form_picture):
-	random_hex = secrets.token_hex(8)
-	_,f_ext = os.path.splitext(form_picture.filename)
-	image_name = random_hex + f_ext
-	image_path = os.path.join(app.config['UPLOAD_DIR'], image_name)
-	
-	# using pillow for resize the image file
-	output_size = (125, 125)
-	i = Image.open(form_picture)
-	i.thumbnail(output_size)
-	i.save(image_path)
-	i.replace(image_path)
-
-	return image_name
-
 #profile route
-@main.route('/profile', methods=['POST', 'GET'])
+@main.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
-	id = current_user.id
-	user_data = User.query.get_or_404(id)
-	# get information from database and update with new data
 	if request.method == "POST":
-		user_data.username = request.form['username']
-		user_data.email = request.form['email']
-		image_file = request.files['file']
+		username = request.form['username']
+		email = request.form['email']
+		#Profile image upload by user
+		profile_image = request.files['file']
 
-		filename = secure_filename(image_file.filename)
-		image_file.save(app.config['UPLOAD_DIR'], filename)
+		if profile_image:
+			random_hex = secrets.token_hex(8)
+			_,f_ext = os.path.splitext(profile_image.filename)
+			f_name = random_hex + f_ext
+			profile_image.save(os.path.join(app.config['UPLOAD_DIR'], f_name))
 
-		user_data.image_file = filename
-		filename.save()
+		user_id = current_user.id
+		user.profile_image = f_name
+		db.session.add(profile_image)
 		db.session.commit()
+
 		return redirect(url_for('main.profile'))
-	return render_template('profile.html', title='Dashboard', user_data=user_data)
+	return render_template('profile.html')
 
 #post page
 @main.route("/post/<int:post_id>")
